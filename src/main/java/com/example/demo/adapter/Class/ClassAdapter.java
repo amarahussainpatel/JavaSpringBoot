@@ -48,9 +48,9 @@ public class ClassAdapter {
 			dto.setSubjectName(entity.getSubjectName());
 //			for students
 			if(!entity.getJoinedstudents().isEmpty()) {
-				List<StudentDTO_withoutClass> studentList= new ArrayList<>();
+				List<StudentDTO> studentList= new ArrayList<>();
 				entity.getJoinedstudents().stream().forEach(StudentEntity->{
-					studentList.add(adapterstudent.DAOToDTO_withoutClass(StudentEntity));
+					studentList.add(adapterstudent.DAOToDTO(StudentEntity));
 				});
 				dto.setJoinedstudents(studentList);
 			}
@@ -61,10 +61,10 @@ public class ClassAdapter {
 		}
 	}
 	
-	public ClassDTO_withoutStudent DAOtoDTO_withoutStudents(ClassEntity entity) {
+	public ClassDTO DAOtoDTO_withoutStudents(ClassEntity entity) {
 		StudentAdapter adapterstudent = new StudentAdapter();
 		if(null!=entity) {
-			ClassDTO_withoutStudent dto = new ClassDTO_withoutStudent();
+			ClassDTO dto = new ClassDTO();
 			dto.setClassID(entity.getClassID());
 			dto.setRoomNo(entity.getRoomNo());
 			dto.setSubjectName(entity.getSubjectName());
@@ -93,10 +93,10 @@ public class ClassAdapter {
 			newDtoObj.setSubjectName(entity.getSubjectName());
 			//for student
 			if(entity.getJoinedstudents() !=null) {
-				List<StudentDTO_withoutClass> studentList= new ArrayList<>();
+				List<StudentDTO> studentList= new ArrayList<>();
 				entity.getJoinedstudents().stream().forEach(StudentEntity->{
 					StudentEntity.addClass(entity);
-					studentList.add(adapterstudent.DAOToDTO_withoutClass(StudentEntity));
+					studentList.add(adapterstudent.DAOToDTO_forClass(StudentEntity));
 				});
 				newDtoObj.setJoinedstudents(studentList);
 			}

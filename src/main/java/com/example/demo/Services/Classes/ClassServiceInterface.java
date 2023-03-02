@@ -11,7 +11,7 @@ import com.example.demo.dto.StudentDTO;
 
 @Service
 public interface ClassServiceInterface {
-	public ClassDTO save(ClassDTO dto) throws Null_IDException , EmptyRequestException;
+	public void save(ClassDTO dto) throws Null_IDException , EmptyRequestException;
 	public List<ClassDTO> display();
 	public ClassDTO displaybyID(int ID);
 	public List<ClassDTO> delete(ClassDTO dto);

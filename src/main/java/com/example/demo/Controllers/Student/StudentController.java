@@ -21,7 +21,6 @@ public class StudentController {
 	@Autowired
 	StudentServiceInterface serve;
 	
-	
 	@PostMapping("save")
 	public StudentDTO postStudent(@RequestBody StudentDTO std) {
 		return serve.save(std);

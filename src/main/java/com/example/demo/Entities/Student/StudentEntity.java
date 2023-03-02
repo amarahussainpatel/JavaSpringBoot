@@ -1,6 +1,5 @@
 package com.example.demo.Entities.Student;
 
-import static org.junit.Assert.assertTrue;
 
 import java.util.HashSet;
 import java.util.List;
@@ -14,6 +13,7 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -36,6 +36,7 @@ public class StudentEntity {
 	
 	@OneToOne
 	(mappedBy = "entityStudent",
+	
 	cascade = CascadeType.ALL,
 	orphanRemoval=true
 	)
@@ -43,6 +44,7 @@ public class StudentEntity {
 	
 	@ManyToMany //in mappedby we write that reference variable in the joined entity
 	(mappedBy = "Joinedstudents",
+	fetch = FetchType.LAZY,
 	cascade = CascadeType.MERGE
 	)
 	private Set<ClassEntity> JoinedClasses;

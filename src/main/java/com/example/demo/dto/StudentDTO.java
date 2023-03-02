@@ -20,7 +20,6 @@ public class StudentDTO {
 	
 	private List<ClassDTO> JoinedClasses;
 	
-	private List<ClassDTO_withoutStudent> JoinedClasses_withoutStudent;
 
 	public Integer getAge() {
 		return age;
@@ -62,11 +61,4 @@ public class StudentDTO {
 		JoinedClasses = joinedClasses;
 	}
 
-	public List<ClassDTO_withoutStudent> getJoinedClasses_withoutStudent() {
-		return JoinedClasses_withoutStudent;
-	}
-
-	public void setJoinedClasses_withoutStudent(List<ClassDTO_withoutStudent> joinedClasses_withoutStudent) {
-		JoinedClasses_withoutStudent = joinedClasses_withoutStudent;
-	}
 }

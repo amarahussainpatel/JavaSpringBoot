@@ -25,7 +25,7 @@ public class ClassService implements ClassServiceInterface {
 	
 	
 	@Override
-	public ClassDTO save(ClassDTO dto) throws Null_IDException, EmptyRequestException {
+	public void save(ClassDTO dto) throws Null_IDException, EmptyRequestException {
 		ClassAdapter adapter = new ClassAdapter();
 		if(dto==null) {
 			throw new EmptyRequestException("Post request can not be empty");
@@ -36,7 +36,7 @@ public class ClassService implements ClassServiceInterface {
 		ClassEntity temp = adapter.DTOtoDAO(dto);
 		ClassEntity entity = repo.save(temp);
 		
-		return adapter.DAOtoDTO(temp);
+		//return adapter.DAOtoDTO(temp);
 	}
 
 	@Override
